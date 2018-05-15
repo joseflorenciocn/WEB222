@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="css/teste.css"/>
+  <script src="js/assignment6.js"></script>
+</head>
+<body>
+    <form id="signup" name="signup" action="https://httpbin.org/post" method="post" onsubmit='return formValidation();'>
+    <div id='top'> <p>JobSearch<span id="com">.com<span></p></div>
+    <h1>Create Your Account</h1>
+    <h4 id="reqtitle">* Required information</h4>
+    <section id="basic">
+      <h3>Basic Information</h3>
+        <p>
+          <label for="mail">
+            <span>E-mail:</span>
+            <span class="ast">*</span>
+          </label>
+          <input type="email" id="mail" name="usermail" autofocus required>
+        </p> 
+        
+        <p>
+          <label for="pwd">
+            <span>Password: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="password" id="pwd" name="userpass" required onfocus="clearerrorpwd();" onchange = 'validatepsd();'>
+        </p>
+
+        <p>
+          <label for="repwd">
+            <span>Retype Password: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="password" id="repwd" name="userrepass" required onfocus="clearerrorpwd();" onchange = 'validatepsd();'>
+        </p>
+        <div id="erpwd"></div>
+
+        <p>
+          <label for="fname">
+            <span>First Name: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="text" id="fname" name="fusername" required onchange = 'validatefname();' onfocus="clearerrorfname();">
+        </p>
+        <div id='erfname'></div>
+        
+        <p>
+          <label for="lname">
+            <span>Last Name: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="text" id="lname" name="lusername" required onchange = 'validatelname();' onfocus="clearerrorlname();">
+        </p>
+        <div id="erlname"></div>
+
+        <p>
+          <label for="phone">
+            <span>Phone Number: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="tel" id="phone" name="userphone" placeholder="000-000-0000" required onfocus="clearerrorphone();" onchange = 'validatephone();'>
+        </p>
+        <div id="erphone"></div>
+
+        <p>
+          <label for="address">
+            <span>Adress: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="text" id="address" name="useraddr" required>
+        </p>
+
+        <p>
+          <label for="city">
+            <span>City: </span>
+            <span class="ast">*</span>
+          </label>
+          <input type="text" id="city" name="usercity" required>
+        </p>
+        
+        <p>
+          <label for="province">
+            <span>Province: </span>
+            <span class="ast">*</span>
+          </label>
+          <select id="province" name="userprovince" size=1 required>
+            <option value="" disabled>List of Provinces and Territories</option> <!-- Used to pass in WC3 validation-->
+            <optgroup label="Provinces">
+              <option value="AB">Alberta </option>
+              <option value="BC">British Columbia</option>	  
+              <option value="MB">Manitoba</option>	  
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland and Labrador</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="ON">Ontario</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="QC">Quebec</option>  
+              <option value="SK">Saskatchewan</option>  
+            </optgroup>
+            <optgroup label="Territories">
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>  
+              <option value="YT">Yukon</option>     
+            </optgroup>
+          </select>
+        </p>
+
+        <p>
+            <label for="country">
+              <span>Country: </span>
+              <span class="ast">*</span>
+            </label>
+            <input list="ctry" id="country" name="usercountry" required>
+            <datalist id="ctry">
+                <option value="Canada">
+                <option value="United States"> 
+                <option value="Brazil">	  
+                <option value="China">
+                <option value="India">
+            </datalist>
+        </p>
+      </section>
+      
+      <section id="edu">
+        <h3>Education</h3>
+          <p>
+              <label for="school">
+                <span>School: </span>
+                <span class="ast">*</span>
+              </label>
+              <input type="text" id="school" name="userschool" required>
+          </p>
+          
+          <p>
+              <label for="program">
+                <span>Program: </span>
+                <span class="ast">*</span>
+              </label>
+              <input type="text" id="program" name="userprog" required>
+          </p>
+
+          <p>
+              <label for="edulvl">
+                <span>Education Level: </span>
+                <span class="ast">*</span>
+              </label>
+              <select id="edulvl" name="useredulvl" required size=1>
+                <option value="">-select-</option>
+                <option value="1">Technical Diploma</option>	  
+                <option value="2">College Diploma</option>	  
+                <option value="3">Bachelor's Degree</option>
+                <option value="4">Master's Degree</option>
+                <option value="9">Others</option>
+              </select>
+          </p>
+
+          <fieldset>
+              <legend>Education Status:</legend>
+              <ul>
+                  <li>
+                    <label for="status1">
+                      <input type="radio" id="status1" name="useredusts" value="GR" >
+                      Graduated
+                    </label>
+                  </li>
+                  <li>
+                    <label for="status2">
+                      <input type="radio" id="status2" name="useredusts" value="CU">
+                      Current enrolled
+                    </label>
+                  </li>
+                  <li>
+                      <label for="status3">
+                        <input type="radio" id="status3" name="useredusts" value="NO" required>
+                        Did not graduate
+                      </label>
+                  </li>
+              </ul>
+            </fieldset>
+
+            <p>
+                <label for="graduationdate">
+                  <span>Graduation Date: </span>
+                  <span class="ast"></span>
+                </label>
+                <input type="text" id="graduationdate" name="usergraddate">
+              </p>
+      </section>
+  
+    <section id="work">
+      <h3>Work Experience</h3>
+      <p>
+          <label for="employer">
+            <span>Employer: </span>
+            <span class="ast"></span>
+          </label>
+          <input type="text" id="employer" name="useremp">
+      </p>
+
+      <p>
+          <label for="jobtitle">
+            <span>Job Title: </span>
+            <span class="ast"></span>
+          </label>
+          <input type="text" id="jobtitle" name="userjobt">
+      </p>
+
+      <p>
+          <label for="jobduty">
+            <span>Job Duty: </span>
+            <span class="ast"></span>
+          </label>
+          <textarea name="userjobd" id="jobduty" cols="60" rows="3"></textarea>
+      </p>
+
+      <p>
+          <label for="jobtime">
+              <span>Worked Year: </span>
+              <span class="ast"></span>
+          </label>
+          <input type="number" id="jobtime" name="userjobtime" min="1" max="20"> 
+      </p>
+    </section>
+    
+    <section id="att">
+      <h3>Attachments</h3>
+      <p>
+        <label for="attch">
+          <span>Attachments: </span>
+          <span class="ast"></span>
+        </label>
+        <input type="file" id="attch" name="userattch"  multiple> 
+      </p>
+    </section>
+
+    <p>
+        <input id="send" type="submit" value="Apply" >
+        <input id="clear" type="reset"  value="Reset" onclick="clearerrors()">  
+   </p>
+
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Validation Form</title>
+  <link rel="stylesheet" href="css/assignment6.css"/>
+  <script src="js/assignment6.js"></script>
+</head>
+<body>
+    <form id="signup" name="signup" action="https://httpbin.org/post" method="post" onsubmit='return formValidation();'>
+        <h1>Create Your Account</h1>
+        <h4 id="reqtitle">* Required information</h4>
+        <section id="basic">
+            <h3>Basic Information</h3>
+            <p>
+                <label for="fname">
+                <span>First Name: </span>
+                <strong><abbr title="required">*</abbr></strong>
+                </label>
+                <input type="text" id="fname" name="fusername" required value="John" onchange = 'validatefname();' onfocus="clearerrorfname();" >
+                <div id="erfname"></div>
+            </p>
+            
+
+            <p>
+                    <label for="lname">
+                      <span>Last Name: </span>
+                      <strong><abbr title="required">*</abbr></strong>
+                    </label>
+                    <input type="text" id="lname" name="lusername" required value="Doe" onchange = 'validatelname();' onfocus="clearerrorlname();">
+                    <div id="erlname"></div>
+                  </p>
+                  
+
+
+                  <p>
+                        <label for="pwd">
+                          <span>Password: </span>
+                          <strong><abbr title="required">*</abbr></strong>
+                        </label>
+                        <input type="password" id="pwd" name="userpass" required value="Doe12341" onfocus="clearerrorpwd();" onchange = 'validatepsd();' >
+                      </p>
+              
+                      <p>
+                        <label for="repwd">
+                          <span>Retype Password: </span>
+                          <strong><abbr title="required">*</abbr></strong>
+                        </label>
+                        <input type="password" id="repwd" name="userrepass" required value="Doe12341" onfocus="clearerrorpwd();" onchange = 'validatepsd();'>
+                        <div id="erpwd"></div>
+                    </p>
+                    
+
+                    <p>
+                            <label for="phone">
+                              <span>Phone Number: </span>
+                              <strong><abbr title="required">*</abbr></strong>
+                            </label>
+                            <input type="tel" id="phone" name="userphone" placeholder="000-000-0000" required value="111-111-1111" onfocus="clearerrorphone();" onchange = 'validatephone();'>
+                            <div id="erphone"></div>
+                          </p>
+                          
+        </section>
+
+        <fieldset>
+                <legend>Education Status:</legend>
+                <ul>
+                    <li>
+                      <label for="status1">
+                        <input type="radio" id="status1" name="useredusts" value="GR" >
+                        Graduated
+                      </label>
+                    </li>
+                    <li>
+                      <label for="status2">
+                        <input type="radio" id="status2" name="useredusts" value="CU">
+                        Current enrolled
+                      </label>
+                    </li>
+                    <li>
+                        <label for="status3">
+                          <input type="radio" id="status3" name="useredusts" value="NO">
+                          Did not graduate
+                        </label>
+                    </li>
+                </ul>
+              </fieldset>
+
+
+        <p>
+            <input id="send" type="submit" value="Apply" >
+            <input id="clear" type="reset"  value="Reset" onclick="clearerrors()">  
+        </p>
+    </form>
+</body>
+</html>
